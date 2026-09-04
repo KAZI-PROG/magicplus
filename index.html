@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>KAZI — Enter the Universe</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Three.js module mapping -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js",
+            "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-logo">
+            K<span>+</span>
+        </div>
+
+        <div class="loading-line">
+            <div class="loading-progress"></div>
+        </div>
+
+        <div class="loading-text">
+            AWAKENING THE KAZI UNIVERSE
+        </div>
+    </div>
+
+
+    <!-- 3D Universe -->
+    <canvas id="cosmos"></canvas>
+
+
+    <!-- Dark cinematic overlay -->
+    <div id="vignette"></div>
+
+
+    <!-- Top Navigation -->
+    <header class="topbar">
+
+        <div class="brand">
+            KAZI<span>+</span>
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            magic+ // ONLINE
+        </div>
+
+    </header>
+
+
+    <!-- Main Introduction -->
+    <main id="intro">
+
+        <div class="eyebrow">
+            WELCOME TO
+        </div>
+
+        <h1>
+            YOUR<br>
+            <span>UNIVERSE.</span>
+        </h1>
+
+        <p>
+            You don't scroll through my services.<br>
+            You explore my world.
+        </p>
+
+        <button id="enter-universe">
+            ENTER THE UNIVERSE
+            <span>↗</span>
+        </button>
+
+    </main>
+
+
+    <!-- World Information -->
+    <section id="world-panel" class="hidden">
+
+        <div class="world-eyebrow">
+            DESTINATION
+        </div>
+
+        <h2 id="world-title">
+            EDITING
+        </h2>
+
+        <p id="world-description">
+            Crafting motion, stories and attention.
+        </p>
+
+        <div class="world-buttons">
+
+            <button id="dive-button">
+                DIVE IN <span>↗</span>
+            </button>
+
+            <button id="return-button">
+                RETURN
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- World Detail -->
+    <section id="world-detail" class="hidden">
+
+        <div class="detail-inner">
+
+            <div class="world-eyebrow">
+                DESTINATION
+            </div>
+
+            <h2 id="detail-title"></h2>
+
+            <div id="detail-status" class="status detail-status">
+                <span class="status-dot"></span>
+                <span id="detail-status-text"></span>
+            </div>
+
+            <p id="detail-description"></p>
+
+            <ul id="detail-focus"></ul>
+
+            <div id="detail-products" class="detail-products"></div>
+
+            <button id="detail-return-button">
+                RETURN
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- World Navigation -->
+    <nav id="world-navigation">
+
+        <div class="navigation-label">
+            EXPLORE WORLDS
+        </div>
+
+        <div id="world-buttons"></div>
+
+    </nav>
+
+
+    <!-- Cart Badge -->
+    <div id="cart-badge" class="hidden">
+        <span id="cart-badge-count">0</span>
+    </div>
+
+
+    <!-- Cart Panel -->
+    <section id="cart-panel" class="hidden">
+
+        <div class="detail-inner cart-inner">
+
+            <div class="world-eyebrow">
+                YOUR CART
+            </div>
+
+            <h2 id="cart-title">CARGO HOLD</h2>
+
+            <div id="cart-items" class="cart-items"></div>
+
+            <div id="cart-total" class="cart-total"></div>
+
+            <div class="cart-panel-buttons">
+
+                <button id="cart-return-button">
+                    RETURN
+                </button>
+
+                <button id="checkout-button">
+                    CHECKOUT <span>↗</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Checkout Panel -->
+    <section id="checkout-panel" class="hidden">
+
+        <div class="detail-inner checkout-inner">
+
+            <!-- Form state -->
+            <div id="checkout-form-state">
+
+                <div class="world-eyebrow">
+                    FINAL TRANSMISSION
+                </div>
+
+                <h2 id="checkout-title">CHECKOUT</h2>
+
+                <p id="checkout-note">
+                    Payment gateway is on its way. For now, place your order
+                    and it'll be confirmed with you directly — pending payment.
+                </p>
+
+                <form id="checkout-form">
+
+                    <label>
+                        Full Name
+                        <input type="text" id="checkout-name" name="name" required autocomplete="name">
+                    </label>
+
+                    <label>
+                        Phone
+                        <input type="tel" id="checkout-phone" name="phone" required autocomplete="tel">
+                    </label>
+
+                    <label>
+                        Email <span class="optional">(optional)</span>
+                        <input type="email" id="checkout-email" name="email" autocomplete="email">
+                    </label>
+
+                    <label>
+                        Shipping / Delivery Address
+                        <textarea id="checkout-address" name="address" rows="3" required autocomplete="street-address"></textarea>
+                    </label>
+
+                    <label>
+                        Notes <span class="optional">(optional)</span>
+                        <textarea id="checkout-notes" name="notes" rows="2"></textarea>
+                    </label>
+
+                    <div id="checkout-order-summary" class="checkout-order-summary"></div>
+
+                    <div id="checkout-error" class="checkout-error hidden"></div>
+
+                    <div class="checkout-form-buttons">
+
+                        <button type="button" id="checkout-back-button">
+                            BACK TO CART
+                        </button>
+
+                        <button type="submit" id="checkout-submit-button">
+                            PLACE ORDER
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- Success state -->
+            <div id="checkout-success-state" class="hidden">
+
+                <div class="world-eyebrow">
+                    TRANSMISSION RECEIVED
+                </div>
+
+                <h2 id="checkout-success-title">ORDER PLACED</h2>
+
+                <p id="checkout-success-text">
+                    Your order has been received and is pending payment
+                    confirmation. You'll be contacted shortly.
+                </p>
+
+                <div id="checkout-success-id" class="checkout-success-id"></div>
+
+                <button id="checkout-done-button">
+                    RETURN TO UNIVERSE
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Controls Hint -->
+    <div id="controls-hint">
+        DRAG TO LOOK
+        &nbsp; • &nbsp;
+        SCROLL TO ZOOM
+        &nbsp; • &nbsp;
+        SELECT A WORLD
+    </div>
+
+
+    <!-- Main JavaScript -->
+    <script type="module" src="main.js"></script>
+
+</body>
+</html>
