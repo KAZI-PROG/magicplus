@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://kazi-prog.github.io/magicplus/sitemap.xml
