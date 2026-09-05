@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <!-- Primary SEO -->
+    <title>KAZI+ | Video Editing, Motion Design & Creative Services</title>
+    <meta name="description" content="KAZI+ is a creative studio offering video editing, motion graphics, and storytelling services. Explore an interactive universe of creative worlds and discover the right service for your project.">
+    <meta name="keywords" content="KAZI+, video editing, motion design, video editor, editing services, creative studio, freelance video editing, motion graphics">
+    <meta name="author" content="KAZI+">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://kazi-prog.github.io/magicplus/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kazi-prog.github.io/magicplus/">
+    <meta property="og:title" content="KAZI+ | Video Editing, Motion Design & Creative Services">
+    <meta property="og:description" content="Explore the KAZI+ universe — an interactive experience showcasing video editing, motion design, and creative storytelling services.">
+    <meta property="og:image" content="https://kazi-prog.github.io/magicplus/assets/og-image.jpg">
+    <meta property="og:site_name" content="KAZI+">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://kazi-prog.github.io/magicplus/">
+    <meta name="twitter:title" content="KAZI+ | Video Editing, Motion Design & Creative Services">
+    <meta name="twitter:description" content="Explore the KAZI+ universe — an interactive experience showcasing video editing, motion design, and creative storytelling services.">
+    <meta name="twitter:image" content="https://kazi-prog.github.io/magicplus/assets/og-image.jpg">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/magicplus/favicon.png">
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "KAZI+",
+        "url": "https://kazi-prog.github.io/magicplus/",
+        "description": "KAZI+ offers video editing, motion design, and creative storytelling services through an interactive digital experience.",
+        "sameAs": []
+    }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Three.js module mapping -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.161.0/build/three.module.js",
+            "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loading-logo">
+            K<span>+</span>
+        </div>
+
+        <div class="loading-line">
+            <div class="loading-progress"></div>
+        </div>
+
+        <div class="loading-text">
+            AWAKENING THE KAZI UNIVERSE
+        </div>
+    </div>
+
+
+    <!-- 3D Universe -->
+    <canvas id="cosmos" aria-hidden="true"></canvas>
+
+
+    <!-- Dark cinematic overlay -->
+    <div id="vignette"></div>
+
+
+    <!-- Top Navigation -->
+    <header class="topbar">
+
+        <div class="brand">
+            KAZI<span>+</span>
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            magic+ // ONLINE
+        </div>
+
+    </header>
+
+
+    <!-- Main Introduction -->
+    <main id="intro">
+
+        <div class="eyebrow">
+            WELCOME TO
+        </div>
+
+        <h1>
+            YOUR<br>
+            <span>UNIVERSE.</span>
+        </h1>
+
+        <p>
+            You don't scroll through my services.<br>
+            You explore my world.
+        </p>
+
+        <button id="enter-universe" aria-label="Enter the KAZI+ interactive universe">
+            ENTER THE UNIVERSE
+            <span>↗</span>
+        </button>
+
+    </main>
+
+
+    <!-- World Information -->
+    <section id="world-panel" class="hidden" aria-label="Selected world details">
+
+        <div class="world-eyebrow">
+            DESTINATION
+        </div>
+
+        <h2 id="world-title">
+            EDITING
+        </h2>
+
+        <p id="world-description">
+            Crafting motion, stories and attention.
+        </p>
+
+        <div class="world-buttons">
+
+            <button id="dive-button">
+                DIVE IN <span>↗</span>
+            </button>
+
+            <button id="return-button">
+                RETURN
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- World Detail -->
+    <section id="world-detail" class="hidden" aria-label="World detail view">
+
+        <div class="detail-inner">
+
+            <div class="world-eyebrow">
+                DESTINATION
+            </div>
+
+            <h2 id="detail-title"></h2>
+
+            <div id="detail-status" class="status detail-status">
+                <span class="status-dot"></span>
+                <span id="detail-status-text"></span>
+            </div>
+
+            <p id="detail-description"></p>
+
+            <ul id="detail-focus"></ul>
+
+            <div id="detail-products" class="detail-products"></div>
+
+            <button id="detail-return-button">
+                RETURN
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- World Navigation -->
+    <nav id="world-navigation" aria-label="Explore creative worlds">
+
+        <div class="navigation-label">
+            EXPLORE WORLDS
+        </div>
+
+        <div id="world-buttons"></div>
+
+    </nav>
+
+
+    <!-- Cart Badge -->
+    <div id="cart-badge" class="hidden">
+        <span id="cart-badge-count">0</span>
+    </div>
+
+
+    <!-- Cart Panel -->
+    <section id="cart-panel" class="hidden" aria-label="Shopping cart">
+
+        <div class="detail-inner cart-inner">
+
+            <div class="world-eyebrow">
+                YOUR CART
+            </div>
+
+            <h2 id="cart-title">CARGO HOLD</h2>
+
+            <div id="cart-items" class="cart-items"></div>
+
+            <div id="cart-total" class="cart-total"></div>
+
+            <div class="cart-panel-buttons">
+
+                <button id="cart-return-button">
+                    RETURN
+                </button>
+
+                <button id="checkout-button">
+                    CHECKOUT <span>↗</span>
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Checkout Panel -->
+    <section id="checkout-panel" class="hidden" aria-label="Checkout">
+
+        <div class="detail-inner checkout-inner">
+
+            <!-- Form state -->
+            <div id="checkout-form-state">
+
+                <div class="world-eyebrow">
+                    FINAL TRANSMISSION
+                </div>
+
+                <h2 id="checkout-title">CHECKOUT</h2>
+
+                <p id="checkout-note">
+                    Payment gateway is on its way. For now, place your order
+                    and it'll be confirmed with you directly — pending payment.
+                </p>
+
+                <form id="checkout-form">
+
+                    <label>
+                        Full Name
+                        <input type="text" id="checkout-name" name="name" required autocomplete="name">
+                    </label>
+
+                    <label>
+                        Phone
+                        <input type="tel" id="checkout-phone" name="phone" required autocomplete="tel">
+                    </label>
+
+                    <label>
+                        Email <span class="optional">(optional)</span>
+                        <input type="email" id="checkout-email" name="email" autocomplete="email">
+                    </label>
+
+                    <label>
+                        Shipping / Delivery Address
+                        <textarea id="checkout-address" name="address" rows="3" required autocomplete="street-address"></textarea>
+                    </label>
+
+                    <label>
+                        Notes <span class="optional">(optional)</span>
+                        <textarea id="checkout-notes" name="notes" rows="2"></textarea>
+                    </label>
+
+                    <div id="checkout-order-summary" class="checkout-order-summary"></div>
+
+                    <div id="checkout-error" class="checkout-error hidden"></div>
+
+                    <div class="checkout-form-buttons">
+
+                        <button type="button" id="checkout-back-button">
+                            BACK TO CART
+                        </button>
+
+                        <button type="submit" id="checkout-submit-button">
+                            PLACE ORDER
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- Success state -->
+            <div id="checkout-success-state" class="hidden">
+
+                <div class="world-eyebrow">
+                    TRANSMISSION RECEIVED
+                </div>
+
+                <h2 id="checkout-success-title">ORDER PLACED</h2>
+
+                <p id="checkout-success-text">
+                    Your order has been received and is pending payment
+                    confirmation. You'll be contacted shortly.
+                </p>
+
+                <div id="checkout-success-id" class="checkout-success-id"></div>
+
+                <button id="checkout-done-button">
+                    RETURN TO UNIVERSE
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Controls Hint -->
+    <div id="controls-hint">
+        DRAG TO LOOK
+        &nbsp; • &nbsp;
+        SCROLL TO ZOOM
+        &nbsp; • &nbsp;
+        SELECT A WORLD
+    </div>
+
+    <!-- Crawlable fallback content for search engines / no-JS visitors.
+         The 3D experience needs JavaScript, so this gives crawlers and
+         non-JS users real indexable text describing the site. Visually
+         hidden by default via CSS (see .seo-fallback rule) but still in
+         the DOM, so it doesn't affect the visual design. -->
+    <noscript>
+        <div class="seo-fallback">
+            <h1>KAZI+ — Video Editing, Motion Design &amp; Creative Services</h1>
+            <p>
+                KAZI+ is a creative studio specializing in video editing, motion
+                graphics, and storytelling. This site works best with JavaScript
+                enabled, since it renders as an interactive 3D universe. Please
+                enable JavaScript to explore our services, or contact us directly
+                for more information about editing and creative work.
+            </p>
+        </div>
+    </noscript>
+
+
+    <!-- Main JavaScript -->
+    <script type="module" src="main.js"></script>
+
+</body>
+</html>
